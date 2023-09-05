@@ -11,5 +11,11 @@ function makeDivs() {
 
   body.appendChild(div);
 }
-
 makeDivs();
+
+const divs = document.querySelectorAll("#grid-container div");
+divs.forEach((div) => {
+  div.addEventListener("mouseover", (e) => {
+    e.target.classList.add("hovered");
+  })
+});
