@@ -24,6 +24,8 @@ function makeDivs(grid_size) {
 
   for (let i = 0; i < (grid_size ** 2); i++) {
     let square = document.createElement("div");
+    /* Adjust each square's dimensions to the size of the grid. */
+    square.style["flex-basis"] = `${100 / grid_size}%`;
     div.appendChild(square);
   }
 

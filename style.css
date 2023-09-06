@@ -17,9 +17,6 @@ body {
 
 .grid-container > * {
   background-color: #000;
-  /* 100 / 16 = 6.25 */
-  flex-basis: 6.25%;
-  max-height: 6.25%;
 }
 
 .hovered {
