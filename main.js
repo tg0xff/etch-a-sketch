@@ -1,6 +1,5 @@
 const body = document.querySelector("body");
 const button = document.querySelector("button");
-let activation_count = 10;
 
 function setNewGridSize() {
   let new_size;
@@ -17,7 +16,6 @@ function setNewGridSize() {
 
   makeDivs(new_size);
   listenGridDivs();
-  activation_count = 10;
 }
 
 function makeDivs(grid_size) {
@@ -40,13 +38,9 @@ function listenGridDivs() {
     div.addEventListener("mouseover", (e) => {
       e.target.style["background-color"] =
         "rgb(" +
-        `${activation_count * 10}%, ` +
-        `${activation_count * 10}%, ` +
-        `${activation_count * 10}%)`;
-
-      if (activation_count > 0) {
-        activation_count--;
-      }
+        `${Math.round(256 * Math.random())}, ` +
+        ` ${Math.round(256 * Math.random())}, ` +
+        `${Math.round(256 * Math.random())})`;
     });
   });
 }
