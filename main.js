@@ -1,7 +1,7 @@
 const body = document.querySelector("body");
 const button = document.querySelector("button");
 
-button.addEventListener("click", (e) => {
+function setNewGridSize() {
   let new_size;
   let keepGoing = true;
 
@@ -16,7 +16,7 @@ button.addEventListener("click", (e) => {
 
   makeDivs(new_size);
   listenGridDivs();
-});
+}
 
 function makeDivs(grid_size) {
   const div = document.createElement("div");
@@ -31,7 +31,6 @@ function makeDivs(grid_size) {
 
   body.appendChild(div);
 }
-makeDivs(16);
 
 function listenGridDivs() {
   const divs = document.querySelectorAll(".grid-container div");
@@ -41,4 +40,7 @@ function listenGridDivs() {
     });
   });
 }
+
+makeDivs(16);
 listenGridDivs();
+button.addEventListener("click", setNewGridSize);
