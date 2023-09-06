@@ -1,5 +1,6 @@
 const body = document.querySelector("body");
 const button = document.querySelector("button");
+let activation_count = 10;
 
 button.addEventListener("click", (e) => {
   let new_size;
@@ -16,6 +17,7 @@ button.addEventListener("click", (e) => {
 
   makeDivs(new_size);
   listenGridDivs();
+  activation_count = 10;
 });
 
 function makeDivs(grid_size) {
@@ -37,7 +39,15 @@ function listenGridDivs() {
   const divs = document.querySelectorAll(".grid-container div");
   divs.forEach((div) => {
     div.addEventListener("mouseover", (e) => {
-      e.target.classList.add("hovered");
+      e.target.style["background-color"] =
+        "rgb(" +
+        `${activation_count * 10}%, ` +
+        `${activation_count * 10}%, ` +
+        `${activation_count * 10}%)`;
+
+      if (activation_count > 0) {
+        activation_count--;
+      }
     });
   });
 }
