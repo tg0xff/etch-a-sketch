@@ -16,13 +16,13 @@ button.addEventListener("click", (e) => {
 
   makeDivs(new_size);
   listenGridDivs();
-})
+});
 
 function makeDivs(grid_size) {
   const div = document.createElement("div");
   div.classList.add("grid-container");
 
-  for (let i = 0; i < (grid_size ** 2); i++) {
+  for (let i = 0; i < grid_size ** 2; i++) {
     let square = document.createElement("div");
     /* Adjust each square's dimensions to the size of the grid. */
     square.style["flex-basis"] = `${100 / grid_size}%`;
@@ -37,8 +37,12 @@ function listenGridDivs() {
   const divs = document.querySelectorAll(".grid-container div");
   divs.forEach((div) => {
     div.addEventListener("mouseover", (e) => {
-      e.target.classList.add("hovered");
-    })
+      e.target.style["background-color"] =
+        "rgb(" +
+        `${Math.round(256 * Math.random())}, ` +
+        ` ${Math.round(256 * Math.random())}, ` +
+        `${Math.round(256 * Math.random())})`;
+    });
   });
 }
-listenGridDivs()
+listenGridDivs();

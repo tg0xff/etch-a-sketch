@@ -18,7 +18,3 @@ body {
 .grid-container > * {
   background-color: #000;
 }
-
-.hovered {
-  background-color: #ccc;
-}
