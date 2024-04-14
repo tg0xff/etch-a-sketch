@@ -8,13 +8,7 @@ function makeCanvasGrid(gridSize) {
   }
 }
 
-canvas.addEventListener("mouseover", (e) => {
-  if (e.target.parentNode.getAttribute("id") === "canvas") {
-    e.target.classList.toggle("drawn");
-  }
-});
-
-button.addEventListener("click", (e) => {
+function getNewCanvasSize() {
   let newGridSize;
   let keepGoing = true;
   while (keepGoing) {
@@ -24,6 +18,17 @@ button.addEventListener("click", (e) => {
       keepGoing = false;
     }
   }
+  return newGridSize;
+}
+
+canvas.addEventListener("mouseover", (e) => {
+  if (e.target.parentNode.getAttribute("id") === "canvas") {
+    e.target.classList.toggle("drawn");
+  }
+});
+
+button.addEventListener("click", (e) => {
+  let newGridSize = getNewCanvasSize();
   makeCanvasGrid(newGridSize);
 })
 
