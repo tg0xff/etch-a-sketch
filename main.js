@@ -2,9 +2,9 @@ const canvas = document.querySelector("#canvas");
 
 canvas.addEventListener("mouseover", (e) => {
   if (e.target.parentNode.getAttribute("id") === "canvas") {
-    e.target.style["background-color"] = "black";
+    e.target.classList.toggle("drawn");
   }
-})
+});
 
 function makeCanvasGrid(gridSize) {
   for (let i = 0; i < gridSize; i++) {

@@ -16,3 +16,7 @@
 #canvas > div {
   flex: 0 0 25%;
 }
+
+.drawn {
+  background-color: black;
+}
