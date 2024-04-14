@@ -1,5 +1,6 @@
 const canvas = document.querySelector("#canvas");
 const grid = document.querySelector("#grid");
+const reset = document.querySelector("#reset");
 
 function makeCanvasGrid(gridSize) {
   for (let i = 0; i < gridSize; i++) {
@@ -51,5 +52,10 @@ grid.addEventListener("click", (e) => {
   resetCanvas();
   makeCanvasGrid(newGridSize);
 });
+
+reset.addEventListener("click", (e) => {
+  resetCanvas();
+  makeCanvasGrid(canvas.childElementCount);
+})
 
 makeCanvasGrid(16);
