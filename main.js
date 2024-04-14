@@ -1,11 +1,19 @@
 const canvas = document.querySelector("#canvas");
+const button = document.querySelector("button");
+
+function makeCanvasGrid(gridSize) {
+  for (let i = 0; i < gridSize; i++) {
+    const div = document.createElement("div");
+    canvas.appendChild(div);
+  }
+}
+
 canvas.addEventListener("mouseover", (e) => {
   if (e.target.parentNode.getAttribute("id") === "canvas") {
     e.target.classList.toggle("drawn");
   }
 });
 
-const button = document.querySelector("button");
 button.addEventListener("click", (e) => {
   let newGridSize;
   let keepGoing = true;
@@ -18,12 +26,5 @@ button.addEventListener("click", (e) => {
   }
   makeCanvasGrid(newGridSize);
 })
-
-function makeCanvasGrid(gridSize) {
-  for (let i = 0; i < gridSize; i++) {
-    const div = document.createElement("div");
-    canvas.appendChild(div);
-  }
-}
 
 makeCanvasGrid(16);
