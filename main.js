@@ -1,6 +1,9 @@
 const canvas = document.querySelector("#canvas");
 const grid = document.querySelector("#grid");
 const reset = document.querySelector("#reset");
+const select = document.querySelector("select");
+
+let colorMode = "black";
 
 function makeCanvasGrid(gridSize) {
   for (let i = 0; i < gridSize; i++) {
@@ -56,6 +59,12 @@ reset.addEventListener("click", (e) => {
   const gridSize = canvas.childElementCount;
   resetCanvas();
   makeCanvasGrid(gridSize);
+})
+
+select.addEventListener("change", (e) => {
+  colorMode = e.target.value;
+  const click = new Event("click");
+  reset.dispatchEvent(click);
 })
 
 makeCanvasGrid(16);
