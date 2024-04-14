@@ -4,6 +4,7 @@ const reset = document.querySelector("#reset");
 const select = document.querySelector("select");
 
 let colorMode = "black";
+let greyscaleFactor = 100;
 
 function makeCanvasGrid(gridSize) {
   for (let i = 0; i < gridSize; i++) {
@@ -47,6 +48,18 @@ function colorModeBlack(e) {
   e.target.style["background-color"] = "black";
 }
 
+function colorModeGreyscale(e) {
+  // The division is necessary because subtracting greyscaleFactor by 0.1 causes
+  // some floating point weirdness that leads to unexpected behaviour.
+  const rgbVal = 255 * (greyscaleFactor / 100);
+  if (greyscaleFactor > 0) {
+    greyscaleFactor = greyscaleFactor - 10;
+  } else {
+    greyscaleFactor = 100;
+  }
+  e.target.style["background-color"] = `rgb(${rgbVal}, ${rgbVal}, ${rgbVal})`;
+}
+
 canvas.addEventListener("mouseover", (e) => {
   if (e.target.parentNode.getAttribute("id") === "canvas") {
     switch (colorMode) {
@@ -54,6 +67,7 @@ canvas.addEventListener("mouseover", (e) => {
       colorModeBlack(e);
       break;
     case "greyscale":
+      colorModeGreyscale(e);
       break;
     case "rainbow":
       break;
