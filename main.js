@@ -11,11 +11,10 @@ function makeCanvasGrid(gridSize) {
 }
 
 function setFlexBasis(gridSize) {
+  let flexBasis = 100 / Math.sqrt(gridSize);
+  flexBasis = flexBasis.toString();
   let canvasDivs = canvas.querySelectorAll("div");
   canvasDivs.forEach((elem) => {
-    let flexBasis = 100 / Math.sqrt(gridSize);
-    flexBasis = Math.round(flexBasis);
-    flexBasis = flexBasis.toString();
     elem.style["flex-basis"] = flexBasis + "%";
   });
 }
