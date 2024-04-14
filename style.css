@@ -1,0 +1,11 @@
+:root {
+  font-size: medium;
+  line-height: 1.45;
+}
+
+#canvas {
+  border: 1px solid black;
+  min-height: 40rem;
+  max-width: 40rem;
+  margin: 0 auto;
+}
