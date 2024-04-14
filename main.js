@@ -9,18 +9,11 @@ let greyscaleFactor = 100;
 function makeCanvasGrid(gridSize) {
   for (let i = 0; i < gridSize; i++) {
     const div = document.createElement("div");
+    let flexBasis = 100 / Math.sqrt(gridSize);
+    flexBasis = flexBasis.toString();
+    div.style["flex-basis"] = flexBasis + "%";
     canvas.appendChild(div);
   }
-  setFlexBasis(gridSize);
-}
-
-function setFlexBasis(gridSize) {
-  let flexBasis = 100 / Math.sqrt(gridSize);
-  flexBasis = flexBasis.toString();
-  let canvasDivs = canvas.querySelectorAll("div");
-  canvasDivs.forEach((elem) => {
-    elem.style["flex-basis"] = flexBasis + "%";
-  });
 }
 
 function getNewCanvasSize() {
