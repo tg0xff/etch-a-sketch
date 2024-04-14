@@ -1,5 +1,5 @@
 const canvas = document.querySelector("#canvas");
-const button = document.querySelector("button");
+const grid = document.querySelector("#grid");
 
 function makeCanvasGrid(gridSize) {
   for (let i = 0; i < gridSize; i++) {
@@ -46,7 +46,7 @@ canvas.addEventListener("mouseover", (e) => {
   }
 });
 
-button.addEventListener("click", (e) => {
+grid.addEventListener("click", (e) => {
   let newGridSize = getNewCanvasSize();
   resetCanvas();
   makeCanvasGrid(newGridSize);
