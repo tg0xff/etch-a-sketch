@@ -60,6 +60,16 @@ function colorModeGreyscale(e) {
   e.target.style["background-color"] = `rgb(${rgbVal}, ${rgbVal}, ${rgbVal})`;
 }
 
+function colorModeRainbow(e) {
+  let r = 255 * Math.random();
+  r = Math.round(r);
+  let g = 255 * Math.random();
+  g = Math.round(g);
+  let b = 255 * Math.random();
+  b = Math.round(b);
+  e.target.style["background-color"] = `rgb(${r}, ${g}, ${b})`;
+}
+
 canvas.addEventListener("mouseover", (e) => {
   if (e.target.parentNode.getAttribute("id") === "canvas") {
     switch (colorMode) {
@@ -70,6 +80,7 @@ canvas.addEventListener("mouseover", (e) => {
       colorModeGreyscale(e);
       break;
     case "rainbow":
+      colorModeRainbow(e);
       break;
     }
   }
