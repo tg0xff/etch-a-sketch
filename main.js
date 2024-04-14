@@ -23,9 +23,9 @@ function getNewCanvasSize() {
   let newGridSize;
   let keepGoing = true;
   while (keepGoing) {
-    newGridSize = prompt("Enter new grid size:");
+    newGridSize = prompt("Enter new grid size (max. 1000):");
     newGridSize = +newGridSize;
-    if (typeof newGridSize === "number" && newGridSize > 0) {
+    if (typeof newGridSize === "number" && newGridSize > 0 && newGridSize < 1001) {
       keepGoing = false;
     }
   }
