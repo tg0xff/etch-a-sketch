@@ -3,7 +3,7 @@ const grid = document.querySelector("#grid");
 const reset = document.querySelector("#reset");
 const select = document.querySelector("select");
 
-let colorMode = "black";
+let colorModeFunction = colorModeBlack;
 let greyscaleFactor = 100;
 
 function makeCanvasGrid(gridSize) {
@@ -76,17 +76,7 @@ function colorModeRainbow(e) {
 
 canvas.addEventListener("mouseover", (e) => {
   if (e.target.parentNode.getAttribute("id") === "canvas") {
-    switch (colorMode) {
-      case "black":
-        colorModeBlack(e);
-        break;
-      case "greyscale":
-        colorModeGreyscale(e);
-        break;
-      case "rainbow":
-        colorModeRainbow(e);
-        break;
-    }
+    colorModeFunction(e);
   }
 });
 
@@ -103,7 +93,17 @@ reset.addEventListener("click", (e) => {
 });
 
 select.addEventListener("change", (e) => {
-  colorMode = e.target.value;
+  switch (e.target.value) {
+    case "black":
+      colorModeFunction = colorModeBlack;
+      break;
+    case "greyscale":
+      colorModeFunction = colorModeGreyscale;
+      break;
+    case "rainbow":
+      colorModeFunction = colorModeRainbow;
+      break;
+  }
   const click = new Event("click");
   reset.dispatchEvent(click);
 });
