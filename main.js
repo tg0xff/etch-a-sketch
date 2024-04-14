@@ -21,6 +21,14 @@ function getNewCanvasSize() {
   return newGridSize;
 }
 
+function resetCanvas() {
+  let child = canvas.querySelector("div");
+  while (child) {
+    canvas.removeChild(child);
+    child = canvas.querySelector("div");
+  }
+}
+
 canvas.addEventListener("mouseover", (e) => {
   if (e.target.parentNode.getAttribute("id") === "canvas") {
     e.target.classList.toggle("drawn");
@@ -29,6 +37,7 @@ canvas.addEventListener("mouseover", (e) => {
 
 button.addEventListener("click", (e) => {
   let newGridSize = getNewCanvasSize();
+  resetCanvas();
   makeCanvasGrid(newGridSize);
 })
 
