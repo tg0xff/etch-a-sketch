@@ -6,6 +6,17 @@ function makeCanvasGrid(gridSize) {
     const div = document.createElement("div");
     canvas.appendChild(div);
   }
+  setFlexBasis(gridSize);
+}
+
+function setFlexBasis(gridSize) {
+  let canvasDivs = canvas.querySelectorAll("div");
+  canvasDivs.forEach((elem) => {
+    let flexBasis = 100 / Math.sqrt(gridSize);
+    flexBasis = Math.round(flexBasis);
+    flexBasis = flexBasis.toString();
+    elem.style["flex-basis"] = flexBasis + "%";
+  });
 }
 
 function getNewCanvasSize() {
