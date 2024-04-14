@@ -43,9 +43,21 @@ function resetCanvas() {
   }
 }
 
+function colorModeBlack(e) {
+  e.target.style["background-color"] = "black";
+}
+
 canvas.addEventListener("mouseover", (e) => {
   if (e.target.parentNode.getAttribute("id") === "canvas") {
-    e.target.classList.toggle("drawn");
+    switch (colorMode) {
+    case "black":
+      colorModeBlack(e);
+      break;
+    case "greyscale":
+      break;
+    case "rainbow":
+      break;
+    }
   }
 });
 
