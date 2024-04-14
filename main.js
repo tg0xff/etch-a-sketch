@@ -29,7 +29,11 @@ function getNewCanvasSize() {
   while (keepGoing) {
     newGridSize = prompt("Enter new grid size (max. 1024):");
     newGridSize = +newGridSize;
-    if (typeof newGridSize === "number" && newGridSize > 0 && newGridSize < 1025) {
+    if (
+      typeof newGridSize === "number" &&
+      newGridSize > 0 &&
+      newGridSize < 1025
+    ) {
       keepGoing = false;
     }
   }
@@ -73,15 +77,15 @@ function colorModeRainbow(e) {
 canvas.addEventListener("mouseover", (e) => {
   if (e.target.parentNode.getAttribute("id") === "canvas") {
     switch (colorMode) {
-    case "black":
-      colorModeBlack(e);
-      break;
-    case "greyscale":
-      colorModeGreyscale(e);
-      break;
-    case "rainbow":
-      colorModeRainbow(e);
-      break;
+      case "black":
+        colorModeBlack(e);
+        break;
+      case "greyscale":
+        colorModeGreyscale(e);
+        break;
+      case "rainbow":
+        colorModeRainbow(e);
+        break;
     }
   }
 });
@@ -96,12 +100,12 @@ reset.addEventListener("click", (e) => {
   const gridSize = canvas.childElementCount;
   resetCanvas();
   makeCanvasGrid(gridSize);
-})
+});
 
 select.addEventListener("change", (e) => {
   colorMode = e.target.value;
   const click = new Event("click");
   reset.dispatchEvent(click);
-})
+});
 
 makeCanvasGrid(16);
