@@ -54,8 +54,9 @@ grid.addEventListener("click", (e) => {
 });
 
 reset.addEventListener("click", (e) => {
+  const gridSize = canvas.childElementCount;
   resetCanvas();
-  makeCanvasGrid(canvas.childElementCount);
+  makeCanvasGrid(gridSize);
 })
 
 makeCanvasGrid(16);
