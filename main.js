@@ -50,6 +50,6 @@ button.addEventListener("click", (e) => {
   let newGridSize = getNewCanvasSize();
   resetCanvas();
   makeCanvasGrid(newGridSize);
-})
+});
 
 makeCanvasGrid(16);
